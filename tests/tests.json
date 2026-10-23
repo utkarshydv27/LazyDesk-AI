@@ -1,0 +1,59 @@
+[
+  {
+    "name": "Load sample workspace and review categorized files",
+    "sanity": true,
+    "viewport": "desktop",
+    "covers": [
+      "sample workspace loading",
+      "file categorization",
+      "file list rendering"
+    ],
+    "description": "Verifies the sample action displays representative files and enables organization suggestions.",
+    "steps": [
+      "Open the app",
+      "Choose Try sample workspace",
+      "Review the visible file rows"
+    ],
+    "expected": "Six sample files appear with categories and the Suggest organization button is enabled."
+  },
+  {
+    "name": "Filter the file list by category",
+    "viewport": "desktop",
+    "covers": ["category filters", "filtered file list"],
+    "description": "Verifies the category controls show matching files without losing the workspace.",
+    "steps": [
+      "Load the sample workspace",
+      "Choose the Images filter",
+      "Review the visible file rows"
+    ],
+    "expected": "Only image-category sample files are displayed and the Images filter is active."
+  },
+  {
+    "name": "Change a file's suggested folder",
+    "viewport": "desktop",
+    "covers": ["manual category review", "user-controlled suggestions"],
+    "description": "Verifies a user can override an AI or sample category using the folder selector.",
+    "steps": [
+      "Load the sample workspace",
+      "Change a file's folder selector to Other",
+      "Review that file's category"
+    ],
+    "expected": "The selected file displays Other as its category and the workspace remains usable."
+  },
+  {
+    "name": "Handle unavailable local Ollama safely",
+    "viewport": "mobile",
+    "covers": [
+      "local model connection failure",
+      "offline fallback",
+      "mobile workspace"
+    ],
+    "description": "Verifies that missing Ollama does not break the file organizer and provides fallback suggestions.",
+    "steps": [
+      "Open the app on mobile",
+      "Load the sample workspace",
+      "Choose Suggest organization while Ollama is not connected"
+    ],
+    "expected": "The app remains usable, shows a message about filename-based suggestions, and does not upload or move files."
+  }
+]
